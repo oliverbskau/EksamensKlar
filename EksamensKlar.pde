@@ -70,6 +70,7 @@ void setup() {
 
 void draw() {
 //kode
+//koder en knap
   background(255); 
 
   println(mouseX, mouseY,karakterX);
