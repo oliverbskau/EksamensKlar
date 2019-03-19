@@ -29,8 +29,19 @@ class Cafe{
    popMatrix();
    
    //mand arm
+   pushMatrix();
+   translate(908,467);
+   rotate(radians(roterunderarm));
+   image(underarm,-18,-47);
+   roterunderarm=roterunderarm-roterarm;
+   popMatrix();
    
-   
+   if (roterunderarm<368){
+     roterarm=-0.2;
+   }
+   if (roterunderarm>376){
+    roterarm=0.2; 
+   }
    
    
    if (roterbarista<-10){
