@@ -42,8 +42,11 @@ boolean skaermcafe = false;
 PImage cafeaaben;
 PImage cafelukket;
 PImage baristahoved;
+PImage mandcafehoved;
 float roterbarista=0;
 float roterhovedeB=-0.5;
+float rotermand;
+float roterhovedeM=-0.1;
 
 float indtoningcafe = 255;
 Cafe cafe = new Cafe();
@@ -62,6 +65,7 @@ void setup() {
   cafelukket = loadImage("cafelukket.png");
   cafeaaben = loadImage("cafeåben.png");
   baristahoved = loadImage("baristahoved.png");
+  mandcafehoved = loadImage("mandcafehoved.png");
 
   benhojre = loadImage("ben.png");
   benvenstre = loadImage("benspejlvendt.png");
@@ -77,7 +81,7 @@ void draw() {
 //koder en knap
   background(255); 
 
-  println(mouseX, mouseY,roterbarista);
+  println(mouseX, mouseY);
 
   vaerelse.display();
   
