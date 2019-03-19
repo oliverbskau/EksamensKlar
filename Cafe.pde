@@ -16,6 +16,7 @@ class Cafe{
      indtoningcafe = indtoningcafe - 5;
    }
    
+   // her bliver menneskerne dynamiske
    
  }
   
