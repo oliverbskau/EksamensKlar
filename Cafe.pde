@@ -12,8 +12,17 @@ class Cafe{
      }
      
       pushMatrix();
-   translate(250,329);
-   image(baristahoved,0,0);
+   translate(293,419);
+   rotate(radians(roterbarista));
+   image(baristahoved,-44,-90);
+   roterbarista=roterbarista-roterhovedeB;
+   
+   if (roterbarista<-10){
+    roterhovedeB=-0.5; 
+   }
+   if (roterbarista>10){
+    roterhovedeB=0.5; 
+   }
    
    popMatrix();
      

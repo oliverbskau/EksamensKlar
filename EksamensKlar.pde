@@ -38,11 +38,13 @@ float indtoningkort=255;
 Kort kort = new Kort();
 
 // cafe
-
+boolean skaermcafe = false;
 PImage cafeaaben;
 PImage cafelukket;
 PImage baristahoved;
-boolean skaermcafe = false;
+float roterbarista=0;
+float roterhovedeB=-0.5;
+
 float indtoningcafe = 255;
 Cafe cafe = new Cafe();
 
@@ -75,7 +77,7 @@ void draw() {
 //koder en knap
   background(255); 
 
-  println(mouseX, mouseY,karakterX);
+  println(mouseX, mouseY,roterbarista);
 
   vaerelse.display();
   
