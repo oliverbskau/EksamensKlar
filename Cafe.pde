@@ -18,6 +18,12 @@ class Cafe{
    
    // her bliver menneskerne dynamiske
    
+   
+   pushMatrix();
+   
+   
+   popMatrix();
+   
  }
   
   
