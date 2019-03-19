@@ -69,7 +69,7 @@ void setup() {
 
 
 void draw() {
-
+//kode
   background(255); 
 
   println(mouseX, mouseY,karakterX);
