@@ -11,6 +11,13 @@ class Cafe{
        image(cafeaaben,0,0);
      }
      
+      pushMatrix();
+   translate(250,329);
+   image(baristahoved,0,0);
+   
+   popMatrix();
+     
+     
      fill(0,0,0,indtoningcafe);
      rect(0,0,width,height);
      indtoningcafe = indtoningcafe - 5;
@@ -19,10 +26,11 @@ class Cafe{
    // her bliver menneskerne dynamiske
    
    
-   pushMatrix();
+  
    
    
-   popMatrix();
+        
+   
    
  }
   

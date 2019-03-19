@@ -41,6 +41,7 @@ Kort kort = new Kort();
 
 PImage cafeaaben;
 PImage cafelukket;
+PImage baristahoved;
 boolean skaermcafe = false;
 float indtoningcafe = 255;
 Cafe cafe = new Cafe();
@@ -58,6 +59,7 @@ void setup() {
 
   cafelukket = loadImage("cafelukket.png");
   cafeaaben = loadImage("cafeåben.png");
+  baristahoved = loadImage("baristahoved.png");
 
   benhojre = loadImage("ben.png");
   benvenstre = loadImage("benspejlvendt.png");
