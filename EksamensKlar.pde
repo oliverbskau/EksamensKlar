@@ -23,7 +23,7 @@ Vaerelse vaerelse = new Vaerelse();
 boolean skaermvaerelse = false;
 float indtoningvaerelse=255;
 
-//sove
+//søvn
 boolean sover = false;
 float udtoningsover = 0;
 
