@@ -10,7 +10,7 @@ class SpilKarakter {
 
     if (spilkarakterskaerm==true) {
 
-      if (hojre==true && sover==false) {
+      if (hojre==true && sover==false && laeser==false) {
         image(kropudenben, karakterX, karakterY);
         pushMatrix();
         translate(karakterX+64, karakterY+165);
@@ -36,7 +36,7 @@ class SpilKarakter {
         }
       }
 
-      if (venstre==true && sover==false) {
+      if (venstre==true && sover==false && laeser==false) {
         image(kropvenstre, karakterX, karakterY);
         pushMatrix();
         translate(karakterX+15, karakterY+165);
@@ -70,6 +70,11 @@ class SpilKarakter {
         modvenstre=0;
         karakterX=-19;
       }
+      
+      if (karakterX<210 && skaermbibliotek==true) {
+        modvenstre=0;
+        karakterX=209;
+      }
 
       if (skaermvaerelse==true){
       fill(0, 0, 0, indtoningvaerelse);
@@ -93,6 +98,11 @@ class SpilKarakter {
        rect(0,0,width,height);
        udtoningsover=udtoningsover-1;
        }
+      
+    
+     
+     
+     
       
        
       }

@@ -21,7 +21,6 @@ class Kort {
 
       fill(0, 0, 0, indtoningkort);
       rect(0, 0, width, height);
-
       indtoningkort=indtoningkort-5;
     }
   }

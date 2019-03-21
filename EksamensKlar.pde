@@ -55,6 +55,16 @@ float indtoningcafe = 255;
 Cafe cafe = new Cafe();
 
 
+//Bibliotek
+PImage bibliotekaaben;
+PImage biblioteklukket;
+PImage biblioteklaeser;
+boolean skaermbibliotek = false;
+boolean laeser = false;
+float indtoningbibliotek;
+Bibliotek bib = new Bibliotek();
+
+
 void setup() {
 
   size(1280, 720);
@@ -77,23 +87,29 @@ void setup() {
   kropvenstre = loadImage("karakterspejlvendt.png");
   vaerelseaaben = loadImage("værelseåben.png");
   vaerelselukket = loadImage("værelselukket.png");
+
+  bibliotekaaben = loadImage("bibliotekåben.png");
+  biblioteklukket = loadImage("biblioteklukket.png");
+  biblioteklaeser = loadImage("biblioteklaeser.png");
 }
 
 
 void draw() {
-//kode
-//koder en knap
+  //kode
+  //koder en knap
   background(255); 
 
-  println(mouseX, mouseY);
+  println(mouseX, mouseY, karakterX);
 
   vaerelse.display();
-  
-  cafe.display();
 
-  spilkarakter.display(); 
+  cafe.display(); 
 
   kort.display();
+
+  bib.display();
+
+  spilkarakter.display();
 }
 
 
@@ -118,7 +134,6 @@ void keyPressed() {
 
   if (karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true) {
     sover = true;
-    
   }
 
   //gå ud af værelset 
@@ -129,16 +144,26 @@ void keyPressed() {
     spilkarakterskaerm=false;
     indtoningkort=255;
   }
-  
+
   // gå ud af cafe
+
+  if (karakterX>1030 && karakterX<width && skaermcafe==true && key==' ') {
+    skaermcafe=false;
+    spilkarakterskaerm=false;
+    skaermkort=true;
+    indtoningkort=255;
+  }
+
+//gå ud af bibliotek
+  if (karakterX>1013 && karakterX<width && skaermbibliotek==true && key==' ') {
+    skaermbibliotek=false;
+    spilkarakterskaerm=false;
+    skaermkort=true;
+    indtoningkort=255;
+  }
   
-   if (karakterX>1030 && karakterX<width && skaermcafe==true && key==' '){
-        skaermcafe=false;
-        spilkarakterskaerm=false;
-        skaermkort=true;
-        indtoningkort=255;
-     }
-  
+
+
   
 }
 
@@ -165,26 +190,39 @@ void keyReleased() {
 
 void mousePressed() {
 
-  
+
   //tag hjem fra kortskærmen 
   if (mouseX>840 && mouseX<1205 && mouseY>318 && mouseY<669 && skaermkort==true) {
     skaermvaerelse=true;
     skaermkort=false;
+    skaermcafe=false;
+    skaermbibliotek=false;
     spilkarakterskaerm=true;
     indtoningvaerelse=255;
     karakterX=1015;
   }
-  
+
   //tag ind på cafeen
-  
+
   if (mouseX<410 && mouseX>125 && mouseY>243 && mouseY<490 && skaermkort==true) {
     skaermvaerelse=false;
     skaermkort=false;
     spilkarakterskaerm=true;
     skaermcafe=true;
+    skaermbibliotek=false;
     indtoningcafe=255;
     karakterX=1090;
-      }
-  
-  
+  }
+
+  // tag ind på bibliotek
+
+  if (mouseX<880 && mouseX>555 && mouseY>70 && mouseY<256 && skaermkort==true) {
+    skaermvaerelse=false;
+    skaermkort=false;
+    spilkarakterskaerm=true;
+    skaermcafe=false;
+    skaermbibliotek=true;
+    indtoningbibliotek=255;
+    karakterX=1100;
+  }
 }
