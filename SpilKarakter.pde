@@ -85,9 +85,10 @@ class SpilKarakter {
     }
     
     if (sover==true){
+      image(vaerelsesover,0,0);
         fill(0,0,0,udtoningsover);
        rect(0,0,width,height); 
-       udtoningsover=udtoningsover+1;
+       udtoningsover=udtoningsover+1; 
     }
     
        if (udtoningsover>255){

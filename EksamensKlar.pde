@@ -26,6 +26,7 @@ float indtoningvaerelse=255;
 //karakter sover
 boolean sover = false;
 float udtoningsover = 0;
+PImage vaerelsesover;
 
 //kort
 boolean skaermkort = false;
@@ -87,6 +88,7 @@ void setup() {
   kropvenstre = loadImage("karakterspejlvendt.png");
   vaerelseaaben = loadImage("værelseåben.png");
   vaerelselukket = loadImage("værelselukket.png");
+  vaerelsesover = loadImage("værelsesover.png");
 
   bibliotekaaben = loadImage("bibliotekåben.png");
   biblioteklukket = loadImage("biblioteklukket.png");
