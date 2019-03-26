@@ -60,6 +60,16 @@ float roterarm=-0.2;
 float indtoningcafe = 255;
 Cafe cafe = new Cafe();
 
+//Sid i cafe stol
+PImage cafesiddende;
+PImage spillerarm;
+PImage spillerhovede;
+float roterspillerarm=0;
+float rotererspillerarm=1;
+Boolean cafesidder = false;
+
+
+
 
 //Bibliotek
 PImage bibliotekaaben;
@@ -86,6 +96,9 @@ void setup() {
   baristahoved = loadImage("baristahoved.png");
   mandcafehoved = loadImage("mandcafehoved.png");
   underarm = loadImage("underarm.png");
+  cafesiddende = loadImage("cafesiddende (1).png");
+  spillerarm = loadImage("underarmcafe.png");
+  spillerhovede = loadImage("cafehoved.png");
 
   benhojre = loadImage("ben.png");
   benvenstre = loadImage("benspejlvendt.png");
@@ -173,6 +186,18 @@ void keyPressed() {
     skaermkort=true;
     indtoningkort=255;
   }
+  
+   //sid på cafe
+  
+  if (karakterX>475 && karakterX<515 && skaermcafe==true && key==' '){
+   cafesidder=true; 
+   spilkarakterskaerm=false;
+  }
+  
+  if (karakterX>475 && karakterX<515 && skaermcafe==true && key=='d' || karakterX>475 && karakterX<515 && skaermcafe==true && key=='a'){
+   cafesidder=false;
+   spilkarakterskaerm=true;
+  }
 
 //gå ud af bibliotek
   if (karakterX>1013 && karakterX<width && skaermbibliotek==true && key==' ') {
@@ -233,6 +258,8 @@ void mousePressed() {
     indtoningcafe=255;
     karakterX=1090;
   }
+  
+ 
 
   // tag ind på bibliotek
 
