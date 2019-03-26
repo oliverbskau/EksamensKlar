@@ -75,6 +75,7 @@ class SpilKarakter {
         modvenstre=0;
         karakterX=209;
       }
+      
 
       if (skaermvaerelse==true){
       fill(0, 0, 0, indtoningvaerelse);
@@ -94,6 +95,9 @@ class SpilKarakter {
        if (udtoningsover>255){
         sover=false;
        }
+       
+      
+       
        if (sover==false && udtoningsover>1){
          fill(0,0,0,udtoningsover);
        rect(0,0,width,height);
@@ -102,7 +106,7 @@ class SpilKarakter {
       
     
      
-     
+      
      
       
        

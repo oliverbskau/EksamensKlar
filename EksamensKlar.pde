@@ -28,6 +28,11 @@ boolean sover = false;
 float udtoningsover = 0;
 PImage vaerelsesover;
 
+//spiller spil
+PImage vaerelsespiller;
+boolean spiller = false;
+
+
 //kort
 boolean skaermkort = false;
 PImage map;
@@ -89,6 +94,7 @@ void setup() {
   vaerelseaaben = loadImage("værelseåben.png");
   vaerelselukket = loadImage("værelselukket.png");
   vaerelsesover = loadImage("værelsesover.png");
+  vaerelsespiller = loadImage("værelsespiller.png");
 
   bibliotekaaben = loadImage("bibliotekåben.png");
   biblioteklukket = loadImage("biblioteklukket.png");
@@ -136,6 +142,18 @@ void keyPressed() {
 
   if (karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true) {
     sover = true;
+  }
+  
+  // spil computer
+  
+  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key==' '){
+    spiller=true;
+    spilkarakterskaerm=false;
+  }
+  
+  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='d' || karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='a'){
+    spiller=false;
+    spilkarakterskaerm=true;
   }
 
   //gå ud af værelset 
