@@ -34,12 +34,11 @@ class Cafe {
         if (roterspillerarm<0) {
           rotererspillerarm=1;
         }
-        
-        if (frameCount%1000==0){
-         cafesidder=false; 
-         spilkarakterskaerm=true;
+
+        if (frameCount%1000==0) {
+          cafesidder=false; 
+          spilkarakterskaerm=true;
         }
-        
       }
 
       // barista hovede
@@ -93,9 +92,8 @@ class Cafe {
       }
 
 
-      fill(0, 0, 0, indtoningcafe);
+      fill(0, 0, 0, indtoning);
       rect(0, 0, width, height);
-      indtoningcafe = indtoningcafe - 5;
     }
   }
 }

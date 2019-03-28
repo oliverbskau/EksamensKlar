@@ -1,3 +1,11 @@
+//POP OP tekst
+Tekstvalg tekst = new Tekstvalg();
+
+// indtoning til skærme
+float indtoning=255;
+Indtoning ind = new Indtoning();
+boolean indtoningstart = false;
+
 // spilkarakter
 PImage benhojre;
 PImage benvenstre;
@@ -21,7 +29,7 @@ PImage vaerelselukket;
 PImage vaerelseaaben;
 Vaerelse vaerelse = new Vaerelse();
 boolean skaermvaerelse = false;
-float indtoningvaerelse=255;
+
 
 //karakter sover
 boolean sover = false;
@@ -40,7 +48,7 @@ PImage mapby;
 PImage mapcafe;
 PImage maphjem;
 PImage mapbib;
-float indtoningkort=255;
+
 Kort kort = new Kort();
 
 // cafe
@@ -56,8 +64,6 @@ float rotermand;
 float roterhovedeM=-0.1;
 float roterunderarm=372;
 float roterarm=-0.2;
-
-float indtoningcafe = 255;
 Cafe cafe = new Cafe();
 
 //Sid i cafe stol
@@ -77,7 +83,6 @@ PImage biblioteklukket;
 PImage biblioteklaeser;
 boolean skaermbibliotek = false;
 boolean laeser = false;
-float indtoningbibliotek;
 Bibliotek bib = new Bibliotek();
 
 
@@ -131,6 +136,10 @@ void draw() {
   bib.display();
 
   spilkarakter.display();
+
+  ind.display();
+
+  tekst.display();
 }
 
 
@@ -156,15 +165,15 @@ void keyPressed() {
   if (karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true) {
     sover = true;
   }
-  
+
   // spil computer
-  
-  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key==' '){
+
+  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key==' ') {
     spiller=true;
     spilkarakterskaerm=false;
   }
-  
-  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='d' || karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='a'){
+
+  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='d' || karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='a') {
     spiller=false;
     spilkarakterskaerm=true;
   }
@@ -175,7 +184,7 @@ void keyPressed() {
     skaermvaerelse=false;
     skaermkort=true;
     spilkarakterskaerm=false;
-    indtoningkort=255;
+    indtoning=255;
   }
 
   // gå ud af cafe
@@ -184,32 +193,36 @@ void keyPressed() {
     skaermcafe=false;
     spilkarakterskaerm=false;
     skaermkort=true;
-    indtoningkort=255;
-  }
-  
-   //sid på cafe
-  
-  if (karakterX>475 && karakterX<515 && skaermcafe==true && key==' '){
-   cafesidder=true; 
-   spilkarakterskaerm=false;
-  }
-  
-  if (karakterX>475 && karakterX<515 && skaermcafe==true && key=='d' || karakterX>475 && karakterX<515 && skaermcafe==true && key=='a'){
-   cafesidder=false;
-   spilkarakterskaerm=true;
+    indtoning=255;
   }
 
-//gå ud af bibliotek
+  //sid på cafe
+
+  if (karakterX>475 && karakterX<515 && skaermcafe==true && key==' ') {
+    cafesidder=true; 
+    spilkarakterskaerm=false;
+  }
+  // gå væk fra cafestol
+  if (karakterX>475 && karakterX<515 && skaermcafe==true && key=='d' || karakterX>475 && karakterX<515 && skaermcafe==true && key=='a') {
+    cafesidder=false;
+    spilkarakterskaerm=true;
+  }
+
+  //gå ud af bibliotek
   if (karakterX>1013 && karakterX<width && skaermbibliotek==true && key==' ') {
     skaermbibliotek=false;
     spilkarakterskaerm=false;
     skaermkort=true;
-    indtoningkort=255;
+    indtoning=255;
   }
-  
-
-
-  
+  //læs på bibliotek
+  if (karakterX<210 && skaermbibliotek==true && key==' ') {
+    laeser = true;
+  }
+  //stop med at læse
+  if (laeser==true && key=='d') {
+    laeser=false;
+  }
 }
 
 void keyReleased() {
@@ -230,6 +243,7 @@ void keyReleased() {
   if (key=='e') {
     spilkarakterskaerm=true;
     skaermvaerelse=true;
+    indtoningstart = true;
   }
 }
 
@@ -243,7 +257,7 @@ void mousePressed() {
     skaermcafe=false;
     skaermbibliotek=false;
     spilkarakterskaerm=true;
-    indtoningvaerelse=255;
+    indtoning=255;
     karakterX=1015;
   }
 
@@ -255,11 +269,11 @@ void mousePressed() {
     spilkarakterskaerm=true;
     skaermcafe=true;
     skaermbibliotek=false;
-    indtoningcafe=255;
+    indtoning=255;
     karakterX=1090;
   }
-  
- 
+
+
 
   // tag ind på bibliotek
 
@@ -269,7 +283,7 @@ void mousePressed() {
     spilkarakterskaerm=true;
     skaermcafe=false;
     skaermbibliotek=true;
-    indtoningbibliotek=255;
+    indtoning=255;
     karakterX=1100;
   }
 }

@@ -70,46 +70,36 @@ class SpilKarakter {
         modvenstre=0;
         karakterX=-19;
       }
-      
+
       if (karakterX<210 && skaermbibliotek==true) {
         modvenstre=0;
         karakterX=209;
       }
-      
 
-      if (skaermvaerelse==true){
-      fill(0, 0, 0, indtoningvaerelse);
+
+      if (skaermvaerelse==true) {
+        fill(0, 0, 0, indtoning);
+        rect(0, 0, width, height);
+      }
+    }
+
+    if (sover==true) {
+      image(vaerelsesover, 0, 0);
+      fill(0, 0, 0, udtoningsover);
+      rect(0, 0, width, height); 
+      udtoningsover=udtoningsover+1;
+    }
+
+    if (udtoningsover>255) {
+      sover=false;
+    }
+
+
+
+    if (sover==false && udtoningsover>1) {
+      fill(0, 0, 0, udtoningsover);
       rect(0, 0, width, height);
-
-      indtoningvaerelse=indtoningvaerelse-5;
-      }
+      udtoningsover=udtoningsover-1;
     }
-    
-    if (sover==true){
-      image(vaerelsesover,0,0);
-        fill(0,0,0,udtoningsover);
-       rect(0,0,width,height); 
-       udtoningsover=udtoningsover+1; 
-    }
-    
-       if (udtoningsover>255){
-        sover=false;
-       }
-       
-      
-       
-       if (sover==false && udtoningsover>1){
-         fill(0,0,0,udtoningsover);
-       rect(0,0,width,height);
-       udtoningsover=udtoningsover-1;
-       }
-      
-    
-     
-      
-     
-      
-       
-      }
-    
   }
+}
