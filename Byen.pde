@@ -6,9 +6,8 @@ class Byen {
       image(bar, 0, 0); 
       karakterY=390; 
 
-      image(oliverhovede, 796, 337);
-      image(bartenderhovede, 658, dans);
-      image(skydedor,dor,305);
+
+    
 
       dans=dans+movedans;
 
@@ -54,14 +53,32 @@ class Byen {
         blue = random(1, 255);
       }
 
-      fill(red, green, blue, 50);
+     
+    }
+    if (skaermbyen==false) {
+      karakterY=380;
+    }
+    
+    if (karakterX<305 && skaermbyen==true){
+     modvenstre=0;
+     karakterX=304;
+    }
+    
+    if (drikkerdrinks==true){
+     image(drinks,0,0); 
+    }
+    
+    if (skaermbyen==true){
+      image(bartenderhovede, 658, dans);
+      image(skydedor,dor,305);
+      image(oliverhovede, 796, 337);
+      
+       fill(red, green, blue, 50);
       rect(0, 0, width, height);
 
       fill(0, 0, 0, indtoning);
       rect(0, 0, width, height);
     }
-    if (skaermbyen==false) {
-      karakterY=380;
-    }
+    
   }
 }

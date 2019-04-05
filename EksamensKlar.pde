@@ -98,6 +98,7 @@ PImage bar;
 PImage bartenderhovede;
 PImage oliverhovede;
 PImage skydedor;
+PImage drinks;
 float dor=1017;
 float bevaegdor=0;
 boolean dorlukker=false;
@@ -108,6 +109,8 @@ float blue;
 float dans=355;
 float movedans=1;
 boolean skaermbyen = false;
+boolean drikkerdrinks = false;
+
 Byen byen = new Byen();
 
 void setup() {
@@ -151,6 +154,7 @@ void setup() {
   oliverhovede = loadImage("oliverhovede.png");
   bartenderhovede = loadImage("bartenderhovede.png");
   skydedor = loadImage("dør.png");
+  drinks = loadImage("barmedperson.png");
 }
 
 
@@ -262,14 +266,25 @@ void keyPressed() {
     laeser=false;
   }
   
-  //tag hjem fra byen
+  //tag hjem fra byen og sov
   if (karakterX<width && karakterX>975 && skaermbyen==true && key==' '){
     skaermbyen=false;
-    skaermkort=true;
-    spilkarakterskaerm=false;
+    skaermkort=false;
+    spilkarakterskaerm=true;
+    skaermvaerelse=true;
     indtoning=255;
   }
   
+  //drik en drink i byen
+  if (karakterX>305 && karakterX<355 && skaermbyen==true && key==' '){
+      drikkerdrinks=true;
+      spilkarakterskaerm=false;
+    }
+    
+   if (karakterX>305 && karakterX<355 && skaermbyen==true && key=='d'){
+      drikkerdrinks=false;
+      spilkarakterskaerm=true;
+    }
   
 }
 
