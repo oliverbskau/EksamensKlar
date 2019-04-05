@@ -20,4 +20,26 @@ class Menu{
     image(kridt,mouseX-40,mouseY-30);
     }
   }
+  
+  void maalDisplay(){
+    if(visMaal == true){
+    image(maal,0,0);
+    image(kridt,mouseX-40,mouseY-30);
+    }
+  }
+  
+  void styringDisplay(){
+    if(visStyring == true){
+      image(controls,0,0);
+      image(kridt,mouseX-40,mouseY-30);
+    }
+  }
+  
+  void creditsDisplay(){
+    if(visCredits == true){
+      image(credits,0,0);
+      image(kridt,mouseX-40,mouseY-30);
+    }
+  }
+  
 }

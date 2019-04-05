@@ -6,6 +6,12 @@ PImage styringspil;
 PImage creditsspil;
 PImage kridt;
 boolean visMenu = true;
+boolean visMaal = false;
+boolean visStyring = false;
+boolean visCredits = false;
+PImage maal;
+PImage controls;
+PImage credits;
 
 //POP OP tekst
 Tekstvalg tekst = new Tekstvalg();
@@ -121,6 +127,9 @@ void setup() {
   styringspil = loadImage("menustyring.png");
   creditsspil = loadImage("menucredits.png");
   kridt = loadImage("kridt.png");
+  maal = loadImage("spilmål.png");
+  controls = loadImage("spilstyring.png");
+  credits = loadImage("credits.png");
   
   map = loadImage("map.png");
   mapby = loadImage("mapBy.png");
@@ -182,6 +191,12 @@ void draw() {
   tekst.display();
   
   menu.display();
+  
+  menu.maalDisplay();
+  
+  menu.styringDisplay();
+  
+  menu.creditsDisplay();
 }
 
 
@@ -302,18 +317,61 @@ void keyReleased() {
     roterer=false;
     roterben=0;
   }
-
+  
+  
+  //gå til hovedmenu !!SKAL FIKSES!!, hvis man trykker "start" igen, skal spillet ikke starte forfra, men man skal genoptage spillet fra der hvor man slap..
+ /* if (key=='m') {
+    visMenu=true;
+    skaermvaerelse=false;
+    skaermkort=false;
+    spilkarakterskaerm=false;
+    skaermcafe=false;
+    skaermbibliotek=false;
+    skaermbyen=false;
+ */
 }
 
 void mousePressed() {
 
   //start spillet
-  if(mouseX>=550 && mouseY>=245 && mouseX<=730 && mouseY<=300){
+  if(visMenu==true && mouseX>=550 && mouseY>=245 && mouseX<=730 && mouseY<=300){
     spilkarakterskaerm=true;
     skaermvaerelse=true;
     indtoningstart = true;
     visMenu = false;
   }
+  
+  //vis formål med spillet
+  if(visMenu==true && mouseX>=525 && mouseY>=375 && mouseX<=755 && mouseY<=440){
+      visMaal=true;
+      visMenu=false;
+    }
+  
+  //vis styring af spillet
+  if(visMaal==true && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+      visMaal=false;
+      visStyring=true;
+    }
+   
+   //fra formål til styring
+  if(visStyring==true && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+       visStyring=false;
+       visMenu=true;
+  }
+  
+  
+  //fra menu til credits
+  if(visMenu == true && mouseX>=520 && mouseY>=525 && mouseX<=760 && mouseY<=585){
+    visCredits = true;
+    visMenu = false;
+  }
+  
+  //fra credits til menu
+  if(visCredits == true && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+    visMenu = true;
+    visCredits = false;
+  }
+    
 
   //tag hjem fra kortskærmen 
   if (mouseX>840 && mouseX<1205 && mouseY>318 && mouseY<669 && skaermkort==true) {
