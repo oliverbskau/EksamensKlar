@@ -97,6 +97,11 @@ Bibliotek bib = new Bibliotek();
 PImage bar;
 PImage bartenderhovede;
 PImage oliverhovede;
+PImage skydedor;
+float dor=1017;
+float bevaegdor=0;
+boolean dorlukker=false;
+boolean doraabner=false;
 float red;
 float green;
 float blue;
@@ -145,6 +150,7 @@ void setup() {
   bar = loadImage("bar.png");
   oliverhovede = loadImage("oliverhovede.png");
   bartenderhovede = loadImage("bartenderhovede.png");
+  skydedor = loadImage("dør.png");
 }
 
 
@@ -345,7 +351,8 @@ void mousePressed() {
     skaermbibliotek=false;
     skaermbyen=true;
     indtoning=255;   
-    karakterX=1100;   
+    karakterX=1100; 
+    dor=1200;
       }
   
 }
