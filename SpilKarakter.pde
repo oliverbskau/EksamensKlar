@@ -77,6 +77,11 @@ class SpilKarakter {
       }
 
 
+      if (skaermbyen==true){
+       fill(red,green,blue,50);
+      rect(0,0,width,height); 
+      }
+
       if (skaermvaerelse==true) {
         fill(0, 0, 0, indtoning);
         rect(0, 0, width, height);
@@ -93,9 +98,7 @@ class SpilKarakter {
     if (udtoningsover>255) {
       sover=false;
     }
-
-
-
+    
     if (sover==false && udtoningsover>1) {
       fill(0, 0, 0, udtoningsover);
       rect(0, 0, width, height);

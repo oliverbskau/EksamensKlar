@@ -23,7 +23,7 @@ class Bibliotek {
 
       fill(0, 0, 0, indtoning);
       rect(0, 0, width, height);
-      ;
+      
     }
   }
 }

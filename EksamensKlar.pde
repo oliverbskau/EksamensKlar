@@ -75,8 +75,6 @@ float rotererspillerarm=1;
 Boolean cafesidder = false;
 
 
-
-
 //Bibliotek
 PImage bibliotekaaben;
 PImage biblioteklukket;
@@ -85,6 +83,18 @@ boolean skaermbibliotek = false;
 boolean laeser = false;
 Bibliotek bib = new Bibliotek();
 
+
+// byen
+PImage bar;
+PImage bartenderhovede;
+PImage oliverhovede;
+float red;
+float green;
+float blue;
+float dans=355;
+float movedans=1;
+boolean skaermbyen = false;
+Byen byen = new Byen();
 
 void setup() {
 
@@ -117,6 +127,10 @@ void setup() {
   bibliotekaaben = loadImage("bibliotekåben.png");
   biblioteklukket = loadImage("biblioteklukket.png");
   biblioteklaeser = loadImage("biblioteklaeser.png");
+  
+  bar = loadImage("bar.png");
+  oliverhovede = loadImage("oliverhovede.png");
+  bartenderhovede = loadImage("bartenderhovede.png");
 }
 
 
@@ -134,6 +148,8 @@ void draw() {
   kort.display();
 
   bib.display();
+  
+  byen.display();
 
   spilkarakter.display();
 
@@ -223,6 +239,16 @@ void keyPressed() {
   if (laeser==true && key=='d') {
     laeser=false;
   }
+  
+  //tag hjem fra byen
+  if (karakterX<width && karakterX>975 && skaermbyen==true && key==' '){
+    skaermbyen=false;
+    skaermkort=true;
+    spilkarakterskaerm=false;
+    indtoning=255;
+  }
+  
+  
 }
 
 void keyReleased() {
@@ -257,6 +283,7 @@ void mousePressed() {
     skaermcafe=false;
     skaermbibliotek=false;
     spilkarakterskaerm=true;
+    skaermbyen=false;
     indtoning=255;
     karakterX=1015;
   }
@@ -269,6 +296,7 @@ void mousePressed() {
     spilkarakterskaerm=true;
     skaermcafe=true;
     skaermbibliotek=false;
+    skaermbyen=false;
     indtoning=255;
     karakterX=1090;
   }
@@ -283,7 +311,23 @@ void mousePressed() {
     spilkarakterskaerm=true;
     skaermcafe=false;
     skaermbibliotek=true;
+    skaermbyen=false;
     indtoning=255;
     karakterX=1100;
   }
+  
+  
+  // tag i byen
+  
+     if (mouseX>1056 && mouseX<width && mouseY>0 && mouseY<168) {
+    skaermvaerelse=false;
+    skaermkort=false;
+    spilkarakterskaerm=true;
+    skaermcafe=false;
+    skaermbibliotek=false;
+    skaermbyen=true;
+    indtoning=255;   
+    karakterX=1100;   
+      }
+  
 }
