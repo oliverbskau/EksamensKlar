@@ -1,3 +1,12 @@
+//Menu
+Menu menu = new Menu();
+PImage menuskaerm;
+PImage startspil;
+PImage styringspil;
+PImage creditsspil;
+PImage kridt;
+boolean visMenu = true;
+
 //POP OP tekst
 Tekstvalg tekst = new Tekstvalg();
 
@@ -99,7 +108,12 @@ Byen byen = new Byen();
 void setup() {
 
   size(1280, 720);
-
+  menuskaerm = loadImage("menu.png");
+  startspil = loadImage("menustart.png");
+  styringspil = loadImage("menustyring.png");
+  creditsspil = loadImage("menucredits.png");
+  kridt = loadImage("kridt.png");
+  
   map = loadImage("map.png");
   mapby = loadImage("mapBy.png");
   mapcafe = loadImage("mapCafe.png");
@@ -156,6 +170,8 @@ void draw() {
   ind.display();
 
   tekst.display();
+  
+  menu.display();
 }
 
 
@@ -266,15 +282,17 @@ void keyReleased() {
     roterben=0;
   }
 
-  if (key=='e') {
-    spilkarakterskaerm=true;
-    skaermvaerelse=true;
-    indtoningstart = true;
-  }
 }
 
 void mousePressed() {
 
+  //start spillet
+  if(mouseX>=550 && mouseY>=245 && mouseX<=730 && mouseY<=300){
+    spilkarakterskaerm=true;
+    skaermvaerelse=true;
+    indtoningstart = true;
+    visMenu = false;
+  }
 
   //tag hjem fra kortskærmen 
   if (mouseX>840 && mouseX<1205 && mouseY>318 && mouseY<669 && skaermkort==true) {
