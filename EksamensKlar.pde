@@ -310,7 +310,7 @@ void keyPressed() {
 
   //sid på cafe
 
-  if (karakterX>475 && karakterX<515 && skaermcafe==true && key==' ') {
+  if (karakterX>475 && karakterX<515 && skaermcafe==true && key==' ' && cafesidder==false) {
     cafesidder=true; 
     spilkarakterskaerm=false;
     statssove=statssove+1;
@@ -329,7 +329,7 @@ void keyPressed() {
     indtoning=255;
   }
   //læs på bibliotek
-  if (karakterX<210 && skaermbibliotek==true && key==' ') {
+  if (karakterX<210 && skaermbibliotek==true && key==' ' && laeser==false) {
     laeser = true;
     statsklog=statsklog+3;
     statssove=statssove-2;
@@ -349,7 +349,7 @@ void keyPressed() {
   }
 
   //drik en drink i byen
-  if (karakterX>305 && karakterX<355 && skaermbyen==true && key==' ') {
+  if (karakterX>305 && karakterX<355 && skaermbyen==true && key==' ' && drikkerdrinks==false) {
     drikkerdrinks=true;
     spilkarakterskaerm=false;
     statssocial=statssocial+3;

@@ -47,7 +47,7 @@ class Statistik {
       rect(335, 55, 40, 40);
 
       textSize(30);
-      text("Social", 5, 85);
+      text("Glæde", 5, 85);
 
       // intellekt
 
