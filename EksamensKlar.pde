@@ -12,6 +12,8 @@ boolean visCredits = false;
 PImage maal;
 PImage controls;
 PImage credits;
+int visStyringX=1280;
+int visMenuV=1;
 
 //POP OP tekst
 Tekstvalg tekst = new Tekstvalg();
@@ -171,7 +173,9 @@ void draw() {
   //kode
   //koder en knap
   background(255); 
-
+  
+  println(visMenuV);
+  
   println(mouseX, mouseY, karakterX);
 
   vaerelse.display();
@@ -334,42 +338,44 @@ void keyReleased() {
 void mousePressed() {
 
   //start spillet
-  if(visMenu==true && mouseX>=550 && mouseY>=245 && mouseX<=730 && mouseY<=300){
+  if(visMenuV == 1 && mouseX>=550 && mouseY>=245 && mouseX<=730 && mouseY<=300){
     spilkarakterskaerm=true;
     skaermvaerelse=true;
     indtoningstart = true;
-    visMenu = false;
+    visMenuV = 0;
   }
   
   //vis formål med spillet
-  if(visMenu==true && mouseX>=525 && mouseY>=375 && mouseX<=755 && mouseY<=440){
-      visMaal=true;
-      visMenu=false;
-    }
+  if(visMenuV == 1 && mouseX>=525 && mouseY>=375 && mouseX<=755 && mouseY<=440){
+    
+      visMenuV=2;
+    } 
   
-  //vis styring af spillet
-  if(visMaal==true && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
-      visMaal=false;
-      visStyring=true;
-    }
-   
-   //fra formål til styring
-  if(visStyring==true && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
-       visStyring=false;
-       visMenu=true;
+  //fra formål til styring
+  if(visMenuV == 2 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+      visMenuV++;
+  }
+  
+  //fra styring til menu
+  
+  
+  if(visMenuV == 4 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+    visMenuV = 1;
   }
   
   
   //fra menu til credits
-  if(visMenu == true && mouseX>=520 && mouseY>=525 && mouseX<=760 && mouseY<=585){
-    visCredits = true;
-    visMenu = false;
+  if(visMenuV == 1 && mouseX>=520 && mouseY>=525 && mouseX<=760 && mouseY<=585){
+    visMenuV = 5;
   }
   
   //fra credits til menu
-  if(visCredits == true && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
-    visMenu = true;
-    visCredits = false;
+  if(visMenuV == 5 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+    visMenuV = 1;
+  }
+  
+  if (visMenuV == 3 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+  visMenuV++; 
   }
     
 

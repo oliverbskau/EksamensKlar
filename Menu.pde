@@ -1,7 +1,7 @@
 class Menu{
   
   void display(){
-    if(visMenu == true){
+    if(visMenuV == 1){
     
     image(menuskaerm,0,0);
     
@@ -20,26 +20,26 @@ class Menu{
     image(kridt,mouseX-40,mouseY-30);
     }
   }
+
   
   void maalDisplay(){
-    if(visMaal == true){
-    image(maal,0,0);
-    image(kridt,mouseX-40,mouseY-30);
+    if(visMenuV == 2){
+      image(maal,0,0);
+      image(kridt,mouseX-40,mouseY-30);
     }
   }
   
   void styringDisplay(){
-    if(visStyring == true){
+    if(visMenuV == 3 || visMenuV==4){
       image(controls,0,0);
       image(kridt,mouseX-40,mouseY-30);
-    }
+    }   
   }
   
   void creditsDisplay(){
-    if(visCredits == true){
+    if(visMenuV == 5){
       image(credits,0,0);
       image(kridt,mouseX-40,mouseY-30);
     }
   }
-  
 }
