@@ -48,12 +48,10 @@ class Tekstvalg {
       fill(0);
       text("DRIK EN DRINK", 305, 340);
     }
-    if (karakterX<width && karakterX>975 && skaermbyen==true){
+    if (karakterX<width && karakterX>975 && skaermbyen==true) {
       textSize(30);
       fill(0);
       text("TAG HJEM", 1025, 270);
-      
     }
-    
   }
 }

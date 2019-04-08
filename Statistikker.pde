@@ -178,32 +178,28 @@ class Statistik {
         sg4=255;
         sg5=255;
       }
-      
-      
-      if (statssocial>5){
-       statssocial=5; 
+
+
+      if (statssocial>5) {
+        statssocial=5;
       }
-       if (statssocial<1){
-       statssocial=1; 
+      if (statssocial<1) {
+        statssocial=1;
       }
-      
-       if (statsklog>5){
-       statsklog=5; 
+
+      if (statsklog>5) {
+        statsklog=5;
       }
-       if (statsklog<1){
-       statsklog=1; 
+      if (statsklog<1) {
+        statsklog=1;
       }
-      
-       if (statssove>5){
-       statssove=5; 
+
+      if (statssove>5) {
+        statssove=5;
       }
-       if (statssove<1){
-       statssove=1; 
+      if (statssove<1) {
+        statssove=1;
       }
-      
-      
-      
-      
     }
   }
 }

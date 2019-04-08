@@ -12,7 +12,6 @@ boolean visCredits = false;
 PImage maal;
 PImage controls;
 PImage credits;
-int visStyringX=1280;
 int visMenuV=1;
 
 //POP OP tekst
@@ -23,6 +22,10 @@ int intellekt=1;
 int intellektplus=0;
 int dagsrytme=1;
 Dagsvalg dagen = new Dagsvalg();
+int dagogtid=1;
+int handlingmax=2;
+int handlingmin=0;
+Soveadvarsel advarsel = new Soveadvarsel();
 
 int sovn=1;
 int sovnplus=0;
@@ -214,7 +217,7 @@ void draw() {
   //koder en knap
   background(255); 
 
- 
+
 
   println(mouseX, mouseY, udtoningsover);
 
@@ -243,8 +246,10 @@ void draw() {
   menu.creditsDisplay();
 
   stats.display();
-  
+
   dagen.display();
+
+  advarsel.display();
 }
 
 
@@ -267,25 +272,27 @@ void keyPressed() {
 
   // gå i seng
 
-  if (karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true && sover==false && udtoningsover==0 || karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true && sover==false && udtoningsover==1) {
+  if (karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true && sover==false && udtoningsover==0 && handlingmin>0 && dagsrytme<7 || karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true && sover==false && udtoningsover==1 && handlingmin>0 && dagsrytme<7) {
     sover = true;
     dagsrytme++;
     statssove=statssove+3;
     statsklog=statsklog-1;
     statssocial=statssocial-1;
+    handlingmin=0;
   }
 
   // spil computer
 
-  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key==' ') {
+  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key==' ' && handlingmin<2) {
     spiller=true;
     spilkarakterskaerm=false;
     statsklog=statsklog-1;
     statssocial=statssocial+1;
     statssove=statssove-1;
+    handlingmin=handlingmin+1;
   }
 
-  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='d' || karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='a') {
+  if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='d' && spiller==true || karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='a' && spiller==true) {
     spiller=false;
     spilkarakterskaerm=true;
   }
@@ -310,10 +317,11 @@ void keyPressed() {
 
   //sid på cafe
 
-  if (karakterX>475 && karakterX<515 && skaermcafe==true && key==' ' && cafesidder==false) {
+  if (karakterX>475 && karakterX<515 && skaermcafe==true && key==' ' && cafesidder==false && handlingmin<2) {
     cafesidder=true; 
     spilkarakterskaerm=false;
     statssove=statssove+1;
+    handlingmin=handlingmin+1;
   }
   // gå væk fra cafestol
   if (karakterX>475 && karakterX<515 && skaermcafe==true && key=='d' || karakterX>475 && karakterX<515 && skaermcafe==true && key=='a') {
@@ -329,10 +337,11 @@ void keyPressed() {
     indtoning=255;
   }
   //læs på bibliotek
-  if (karakterX<210 && skaermbibliotek==true && key==' ' && laeser==false) {
+  if (karakterX<210 && skaermbibliotek==true && key==' ' && laeser==false && handlingmin<2) {
     laeser = true;
     statsklog=statsklog+3;
     statssove=statssove-2;
+    handlingmin=handlingmin+1;
   }
   //stop med at læse
   if (laeser==true && key=='d') {
@@ -349,12 +358,13 @@ void keyPressed() {
   }
 
   //drik en drink i byen
-  if (karakterX>305 && karakterX<355 && skaermbyen==true && key==' ' && drikkerdrinks==false) {
+  if (karakterX>305 && karakterX<355 && skaermbyen==true && key==' ' && drikkerdrinks==false && handlingmin==0) {
     drikkerdrinks=true;
     spilkarakterskaerm=false;
     statssocial=statssocial+3;
     statssove=statssove-3;
     statsklog=statsklog-4;
+    handlingmin=handlingmin+2;
   }
 
   if (karakterX>305 && karakterX<355 && skaermbyen==true && key=='d') {
@@ -484,7 +494,7 @@ void mousePressed() {
 
   // tag i byen
 
-  if (mouseX>1056 && mouseX<width && mouseY>0 && mouseY<168) {
+  if (mouseX>1056 && mouseX<width && mouseY>0 && mouseY<168 && skaermkort==true && handlingmin==0) {
     skaermvaerelse=false;
     skaermkort=false;
     spilkarakterskaerm=true;

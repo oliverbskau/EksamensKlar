@@ -11,7 +11,7 @@ class Bibliotek {
       }
 
 
-      
+
 
       //læs
 
@@ -19,11 +19,10 @@ class Bibliotek {
         image(biblioteklaeser, 0, 0);
       }
 
-      
+
 
       fill(0, 0, 0, indtoning);
       rect(0, 0, width, height);
-      
     }
   }
 }

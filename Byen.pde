@@ -7,7 +7,7 @@ class Byen {
       karakterY=390; 
 
 
-    
+
 
       dans=dans+movedans;
 
@@ -17,68 +17,65 @@ class Byen {
       if (dans>335) {
         movedans=-1;
       }
-      
-      
-      
-        if (karakterX<width && karakterX>975 && skaermbyen==true){
-          doraabner=true;
-          dorlukker=false;
-        }
-        if (karakterX<975 && skaermbyen==true){
-         dorlukker=true; 
-         doraabner=false;
-        }
-      
-        dor=dor+bevaegdor;
-        
-        if (dorlukker==true && skaermbyen==true){
-         bevaegdor=-2; 
-        }
-      if (doraabner==true && skaermbyen==true){
-         bevaegdor=2; 
-        }
-       if (dor>1200){
+
+
+
+      if (karakterX<width && karakterX>975 && skaermbyen==true) {
+        doraabner=true;
+        dorlukker=false;
+      }
+      if (karakterX<975 && skaermbyen==true) {
+        dorlukker=true; 
+        doraabner=false;
+      }
+
+      dor=dor+bevaegdor;
+
+      if (dorlukker==true && skaermbyen==true) {
+        bevaegdor=-2;
+      }
+      if (doraabner==true && skaermbyen==true) {
+        bevaegdor=2;
+      }
+      if (dor>1200) {
         dor=1199;
         bevaegdor=0;
-       }
-       if (dor<1017){
+      }
+      if (dor<1017) {
         dor=1018;
         bevaegdor=0;
-       }
+      }
 
-        if (frameCount%15==0) {
+      if (frameCount%15==0) {
 
         red = random(1, 255);
         green = random(1, 255);
         blue = random(1, 255);
       }
-
-     
     }
     if (skaermbyen==false) {
       karakterY=380;
     }
-    
-    if (karakterX<305 && skaermbyen==true){
-     modvenstre=0;
-     karakterX=304;
+
+    if (karakterX<305 && skaermbyen==true) {
+      modvenstre=0;
+      karakterX=304;
     }
-    
-    if (drikkerdrinks==true){
-     image(drinks,0,0); 
+
+    if (drikkerdrinks==true) {
+      image(drinks, 0, 0);
     }
-    
-    if (skaermbyen==true){
+
+    if (skaermbyen==true) {
       image(bartenderhovede, 658, dans);
-      image(skydedor,dor,305);
+      image(skydedor, dor, 305);
       image(oliverhovede, 796, 337);
-      
-       fill(red, green, blue, 50);
+
+      fill(red, green, blue, 50);
       rect(0, 0, width, height);
 
       fill(0, 0, 0, indtoning);
       rect(0, 0, width, height);
     }
-    
   }
 }
