@@ -18,6 +18,46 @@ int visMenuV=1;
 //POP OP tekst
 Tekstvalg tekst = new Tekstvalg();
 
+// dag og nat + valg 
+int intellekt=1;
+int intellektplus=0;
+int dagsrytme=1;
+Dagsvalg dagen = new Dagsvalg();
+
+int sovn=1;
+int sovnplus=0;
+
+int socialitet=1;
+int socialitetplus=0;
+
+int dag=1;
+int dagplus=0;
+
+// vis statistik
+Statistik stats = new Statistik();
+boolean statistikker=false;
+int statssove=4;
+int ss1=255;
+int ss2=255;
+int ss3=255;
+int ss4=255;
+int ss5;
+
+int statsklog=1;
+int sk1=255;
+int sk2;
+int sk3;
+int sk4;
+int sk5;
+
+int statssocial=1;
+int sg1=255;
+int sg2;
+int sg3;
+int sg4;
+int sg5;
+
+
 // indtoning til skærme
 float indtoning=255;
 Indtoning ind = new Indtoning();
@@ -132,7 +172,7 @@ void setup() {
   maal = loadImage("spilmål.png");
   controls = loadImage("spilstyring.png");
   credits = loadImage("credits.png");
-  
+
   map = loadImage("map.png");
   mapby = loadImage("mapBy.png");
   mapcafe = loadImage("mapCafe.png");
@@ -160,7 +200,7 @@ void setup() {
   bibliotekaaben = loadImage("bibliotekåben.png");
   biblioteklukket = loadImage("biblioteklukket.png");
   biblioteklaeser = loadImage("biblioteklaeser.png");
-  
+
   bar = loadImage("bar.png");
   oliverhovede = loadImage("oliverhovede.png");
   bartenderhovede = loadImage("bartenderhovede.png");
@@ -173,10 +213,10 @@ void draw() {
   //kode
   //koder en knap
   background(255); 
-  
-  println(visMenuV);
-  
-  println(mouseX, mouseY, karakterX);
+
+ 
+
+  println(mouseX, mouseY, udtoningsover);
 
   vaerelse.display();
 
@@ -185,7 +225,7 @@ void draw() {
   kort.display();
 
   bib.display();
-  
+
   byen.display();
 
   spilkarakter.display();
@@ -193,14 +233,18 @@ void draw() {
   ind.display();
 
   tekst.display();
-  
+
   menu.display();
-  
+
   menu.maalDisplay();
-  
+
   menu.styringDisplay();
-  
+
   menu.creditsDisplay();
+
+  stats.display();
+  
+  dagen.display();
 }
 
 
@@ -223,8 +267,12 @@ void keyPressed() {
 
   // gå i seng
 
-  if (karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true) {
+  if (karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true && sover==false && udtoningsover==0 || karakterX > 45 && karakterX < 400 && key==' ' && skaermvaerelse==true && sover==false && udtoningsover==1) {
     sover = true;
+    dagsrytme++;
+    statssove=statssove+3;
+    statsklog=statsklog-1;
+    statssocial=statssocial-1;
   }
 
   // spil computer
@@ -232,6 +280,9 @@ void keyPressed() {
   if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key==' ') {
     spiller=true;
     spilkarakterskaerm=false;
+    statsklog=statsklog-1;
+    statssocial=statssocial+1;
+    statssove=statssove-1;
   }
 
   if (karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='d' || karakterX>575 && karakterX< 640 && skaermvaerelse==true && key=='a') {
@@ -262,6 +313,7 @@ void keyPressed() {
   if (karakterX>475 && karakterX<515 && skaermcafe==true && key==' ') {
     cafesidder=true; 
     spilkarakterskaerm=false;
+    statssove=statssove+1;
   }
   // gå væk fra cafestol
   if (karakterX>475 && karakterX<515 && skaermcafe==true && key=='d' || karakterX>475 && karakterX<515 && skaermcafe==true && key=='a') {
@@ -279,32 +331,43 @@ void keyPressed() {
   //læs på bibliotek
   if (karakterX<210 && skaermbibliotek==true && key==' ') {
     laeser = true;
+    statsklog=statsklog+3;
+    statssove=statssove-2;
   }
   //stop med at læse
   if (laeser==true && key=='d') {
     laeser=false;
   }
-  
+
   //tag hjem fra byen og sov
-  if (karakterX<width && karakterX>975 && skaermbyen==true && key==' '){
+  if (karakterX<width && karakterX>975 && skaermbyen==true && key==' ') {
     skaermbyen=false;
     skaermkort=false;
     spilkarakterskaerm=true;
     skaermvaerelse=true;
     indtoning=255;
   }
-  
+
   //drik en drink i byen
-  if (karakterX>305 && karakterX<355 && skaermbyen==true && key==' '){
-      drikkerdrinks=true;
-      spilkarakterskaerm=false;
-    }
-    
-   if (karakterX>305 && karakterX<355 && skaermbyen==true && key=='d'){
-      drikkerdrinks=false;
-      spilkarakterskaerm=true;
-    }
-  
+  if (karakterX>305 && karakterX<355 && skaermbyen==true && key==' ') {
+    drikkerdrinks=true;
+    spilkarakterskaerm=false;
+    statssocial=statssocial+3;
+    statssove=statssove-3;
+    statsklog=statsklog-4;
+  }
+
+  if (karakterX>305 && karakterX<355 && skaermbyen==true && key=='d') {
+    drikkerdrinks=false;
+    spilkarakterskaerm=true;
+  }
+
+  //Her vises statistikker
+
+  if (keyCode==TAB) {
+
+    statistikker=true;
+  }
 }
 
 void keyReleased() {
@@ -321,63 +384,62 @@ void keyReleased() {
     roterer=false;
     roterben=0;
   }
-  
-  
-  //gå til hovedmenu !!SKAL FIKSES!!, hvis man trykker "start" igen, skal spillet ikke starte forfra, men man skal genoptage spillet fra der hvor man slap..
- /* if (key=='m') {
-    visMenu=true;
-    skaermvaerelse=false;
-    skaermkort=false;
-    spilkarakterskaerm=false;
-    skaermcafe=false;
-    skaermbibliotek=false;
-    skaermbyen=false;
- */
+
+  // her fjernes statistikker
+
+  if (keyCode==TAB) {
+
+    statistikker=false;
+  }
 }
 
 void mousePressed() {
 
   //start spillet
-  if(visMenuV == 1 && mouseX>=550 && mouseY>=245 && mouseX<=730 && mouseY<=300){
+  if (visMenuV == 1 && mouseX>=550 && mouseY>=245 && mouseX<=730 && mouseY<=300) {
     spilkarakterskaerm=true;
     skaermvaerelse=true;
     indtoningstart = true;
     visMenuV = 0;
+    statssove=4;
+    statssocial=1;
+    statsklog=1;
+    dagsrytme=1;
   }
-  
+
   //vis formål med spillet
-  if(visMenuV == 1 && mouseX>=525 && mouseY>=375 && mouseX<=755 && mouseY<=440){
-    
-      visMenuV=2;
-    } 
-  
+  if (visMenuV == 1 && mouseX>=525 && mouseY>=375 && mouseX<=755 && mouseY<=440) {
+
+    visMenuV=2;
+  } 
+
   //fra formål til styring
-  if(visMenuV == 2 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
-      visMenuV++;
+  if (visMenuV == 2 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640) {
+    visMenuV++;
   }
-  
+
   //fra styring til menu
-  
-  
-  if(visMenuV == 4 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+
+
+  if (visMenuV == 4 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640) {
     visMenuV = 1;
   }
-  
-  
+
+
   //fra menu til credits
-  if(visMenuV == 1 && mouseX>=520 && mouseY>=525 && mouseX<=760 && mouseY<=585){
+  if (visMenuV == 1 && mouseX>=520 && mouseY>=525 && mouseX<=760 && mouseY<=585) {
     visMenuV = 5;
   }
-  
+
   //fra credits til menu
-  if(visMenuV == 5 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+  if (visMenuV == 5 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640) {
     visMenuV = 1;
   }
-  
-  if (visMenuV == 3 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
-  visMenuV++; 
+
+  if (visMenuV == 3 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640) {
+    visMenuV++;
   }
-    
+
 
   //tag hjem fra kortskærmen 
   if (mouseX>840 && mouseX<1205 && mouseY>318 && mouseY<669 && skaermkort==true) {
@@ -418,11 +480,11 @@ void mousePressed() {
     indtoning=255;
     karakterX=1100;
   }
-  
-  
+
+
   // tag i byen
-  
-     if (mouseX>1056 && mouseX<width && mouseY>0 && mouseY<168) {
+
+  if (mouseX>1056 && mouseX<width && mouseY>0 && mouseY<168) {
     skaermvaerelse=false;
     skaermkort=false;
     spilkarakterskaerm=true;
@@ -432,6 +494,5 @@ void mousePressed() {
     indtoning=255;   
     karakterX=1100; 
     dor=1200;
-      }
-  
+  }
 }
