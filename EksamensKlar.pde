@@ -27,6 +27,11 @@ int handlingmax=2;
 int handlingmin=0;
 Soveadvarsel advarsel = new Soveadvarsel();
 
+//eksamensadvarsel
+Eksamensadvarsel eksadv = new Eksamensadvarsel();
+int dagetileksamen=7;
+
+
 int sovn=1;
 int sovnplus=0;
 
@@ -247,9 +252,11 @@ void draw() {
 
   stats.display();
 
-  dagen.display();
-
   advarsel.display();
+  
+  eksadv.display();
+  
+  dagen.display();
 }
 
 

@@ -12,7 +12,7 @@ class Dagsvalg {
     }
 
 
-    if (spilkarakterskaerm==true) {
+    if (visMenuV==0 && spilkarakterskaerm==true) {
       textSize(20);
       fill(0);
       text("Dag " + dagsrytme, 1000, 50);
