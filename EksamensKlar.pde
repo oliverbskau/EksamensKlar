@@ -177,6 +177,7 @@ boolean skaermeksamen = false;
 Eksamenstart eks = new Eksamenstart();
 boolean visnotater=false;
 PImage noteraaben;
+PImage blyant;
 
 
 
@@ -232,6 +233,7 @@ void setup() {
   eksamen = loadImage("mapEksamen.png");
   eksamenstest = loadImage("eksamen.png");
   noteraaben = loadImage("noteråben.png");
+  blyant = loadImage("blyant.png");
 }
 
 

@@ -7,6 +7,8 @@ class Eksamenstart {
 
       image(eksamenstest, 0, 0);
 
+      image(blyant,mouseX,mouseY);
+
       if (mouseX<1047 && mouseX>820 && mouseY>135 && mouseY<530 && visnotater==false) {
         image(noteraaben, 787, 0);
 
