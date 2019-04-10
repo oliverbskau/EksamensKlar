@@ -5,35 +5,36 @@ class Eksamensadvarsel {
     if (dagsrytme==7 && handlingmin==2 && spilkarakterskaerm==true) {
       textSize(100);
       fill(255, 0, 0);
-      text("Tag til eksamen på kortet ", 40, 400);
+      text("Tag til eksamen på kortet ", 30, 400);
     }
+    
+   
 
+if (dagsrytme==7 && handlingmin==2){
+ skaermkortvalg=false; 
+}
 
     if (dagsrytme==7 && skaermkort==true && handlingmin==2) {
 
       if (mouseX<410 && mouseX>125 && mouseY>243 && mouseY<490) {
-        image(mapcafe, 0, 0);
         textSize(100);
         fill(255, 0, 0);
-        text("Tag til eksamen", 60, 400);
+        text("Tag til eksamen", 260, 400);
       }
       if (mouseX<880 && mouseX>555 && mouseY>70 && mouseY<256) {
-        image(mapbib, 0, 0);
         textSize(100);
         fill(255, 0, 0);
-        text("Tag til eksamen", 60, 400);
+        text("Tag til eksamen", 260, 400);
       }
       if (mouseX>1056 && mouseX<width && mouseY>0 && mouseY<168) {
-        image(mapby, 0, 0);
         textSize(100);
         fill(255, 0, 0);
-        text("Tag til eksamen", 60, 400);
+        text("Tag til eksamen", 260, 400);
       }
       if (mouseX>840 && mouseX<1205 && mouseY>318 && mouseY<669) {
-        image(maphjem, 0, 0);
         textSize(100);
         fill(255, 0, 0);
-        text("Tag til eksamen", 60, 400);
+        text("Tag til eksamen", 260, 400);
       }
     }
 

@@ -108,6 +108,7 @@ boolean spiller = false;
 
 //kort
 boolean skaermkort = false;
+boolean skaermkortvalg = true;
 PImage map;
 PImage mapby;
 PImage mapcafe;
@@ -167,6 +168,18 @@ float movedans=1;
 boolean skaermbyen = false;
 boolean drikkerdrinks = false;
 
+// eksamen
+boolean eksamensklar=false;
+PImage skole;
+PImage eksamen;
+PImage eksamenstest;
+boolean skaermeksamen = false;
+Eksamenstart eks = new Eksamenstart();
+boolean visnotater=false;
+PImage noteraaben;
+
+
+
 Byen byen = new Byen();
 
 void setup() {
@@ -214,6 +227,11 @@ void setup() {
   bartenderhovede = loadImage("bartenderhovede.png");
   skydedor = loadImage("dør.png");
   drinks = loadImage("barmedperson.png");
+
+  skole = loadImage("mapSkole.png");
+  eksamen = loadImage("mapEksamen.png");
+  eksamenstest = loadImage("eksamen.png");
+  noteraaben = loadImage("noteråben.png");
 }
 
 
@@ -224,7 +242,7 @@ void draw() {
 
 
 
-  println(mouseX, mouseY, udtoningsover);
+  println(mouseX,mouseY);
 
   vaerelse.display();
 
@@ -235,6 +253,8 @@ void draw() {
   bib.display();
 
   byen.display();
+  
+  eks.display();
 
   spilkarakter.display();
 
@@ -253,9 +273,9 @@ void draw() {
   stats.display();
 
   advarsel.display();
-  
+
   eksadv.display();
-  
+
   dagen.display();
 }
 
@@ -390,6 +410,11 @@ void keyPressed() {
 void keyReleased() {
 
   //styring af karakter
+  
+  if (key=='l'){
+   dagsrytme=7;
+   handlingmin=2;
+  }
 
   if (key=='d') {
     modhojre=0;
@@ -422,6 +447,9 @@ void mousePressed() {
     statssocial=1;
     statsklog=1;
     dagsrytme=1;
+    skaermkortvalg=true;
+    eksamensklar=false;
+    skaermeksamen=false;
   }
 
   //vis formål med spillet
@@ -459,7 +487,7 @@ void mousePressed() {
 
 
   //tag hjem fra kortskærmen 
-  if (mouseX>840 && mouseX<1205 && mouseY>318 && mouseY<669 && skaermkort==true) {
+  if (mouseX>840 && mouseX<1205 && mouseY>318 && mouseY<669 && skaermkort==true && skaermkortvalg==true) {
     skaermvaerelse=true;
     skaermkort=false;
     skaermcafe=false;
@@ -472,7 +500,7 @@ void mousePressed() {
 
   //tag ind på cafeen
 
-  if (mouseX<410 && mouseX>125 && mouseY>243 && mouseY<490 && skaermkort==true) {
+  if (mouseX<410 && mouseX>125 && mouseY>243 && mouseY<490 && skaermkort==true && skaermkortvalg==true) {
     skaermvaerelse=false;
     skaermkort=false;
     spilkarakterskaerm=true;
@@ -487,7 +515,7 @@ void mousePressed() {
 
   // tag ind på bibliotek
 
-  if (mouseX<880 && mouseX>555 && mouseY>70 && mouseY<256 && skaermkort==true) {
+  if (mouseX<880 && mouseX>555 && mouseY>70 && mouseY<256 && skaermkort==true && skaermkortvalg==true) {
     skaermvaerelse=false;
     skaermkort=false;
     spilkarakterskaerm=true;
@@ -501,7 +529,7 @@ void mousePressed() {
 
   // tag i byen
 
-  if (mouseX>1056 && mouseX<width && mouseY>0 && mouseY<168 && skaermkort==true && handlingmin==0) {
+  if (mouseX>1056 && mouseX<width && mouseY>0 && mouseY<168 && skaermkort==true && handlingmin==0 && skaermkortvalg==true) {
     skaermvaerelse=false;
     skaermkort=false;
     spilkarakterskaerm=true;
@@ -512,4 +540,19 @@ void mousePressed() {
     karakterX=1100; 
     dor=1200;
   }
+
+  //tag til eksamen
+  if (mouseX>412 && mouseX<570 && mouseY>80 && mouseY<340 && dagsrytme==7 && handlingmin==2 && skaermkort==true) {
+    skaermeksamen=true;
+    spilkarakterskaerm=false;
+    skaermkort=false;
+    skaermvaerelse=false;
+    skaermbyen=false;
+    skaermbibliotek=false;
+    skaermcafe=false;
+    indtoning=255;
+  }
+  
+  
+  
 }
