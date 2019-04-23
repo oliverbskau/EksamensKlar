@@ -323,7 +323,7 @@ void draw() {
 
 
 
-  println(mouseX, mouseY, korrektesvar, forkertesvar);
+  println(mouseX, mouseY, visMenuV);
 
   vaerelse.display();
 
@@ -362,6 +362,12 @@ void draw() {
 
 
 void keyPressed() {
+  
+  // vis styring i spillet
+  
+  if (key=='m' && spilkarakterskaerm==true || key=='m' && skaermkort==true){
+   visMenuV=4; 
+  }
 
   // styring af karakter
 
@@ -517,6 +523,12 @@ void keyReleased() {
 }
 
 void mousePressed() {
+  
+  // hvis spillet er startet og man skal fra styring tilbage til spillet
+  
+    if ( spilkarakterskaerm==true && visMenuV==4 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640 || skaermkort==true && visMenuV==4 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
+   visMenuV=0; 
+  }
 
   //start spillet
   if (visMenuV == 1 && mouseX>=550 && mouseY>=245 && mouseX<=730 && mouseY<=300) {
