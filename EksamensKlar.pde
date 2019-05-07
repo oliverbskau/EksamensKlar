@@ -710,6 +710,16 @@ void mousePressed() {
     karakterX = 640;
     karakterY = 380;
     afleveret=false;
+    svar1=false;
+    svar2=false;
+    svar3=false;
+    svar4=false;
+    svar5=false;
+    svar6=false;
+    svar7=false;
+    svar8=false;
+    svar9=false;
+    svar10=false;
   }
   if (fortrist==true && mouseX>788 && mouseX<1085 && mouseY>510 && mouseY<630) {
     fortrist=false;
@@ -751,6 +761,16 @@ void mousePressed() {
     karakterX = 640;
     karakterY = 380;
     afleveret=false;
+     svar1=false;
+    svar2=false;
+    svar3=false;
+    svar4=false;
+    svar5=false;
+    svar6=false;
+    svar7=false;
+    svar8=false;
+    svar9=false;
+    svar10=false;
   }
   if (fortraet==true && mouseX>788 && mouseX<1085 && mouseY>510 && mouseY<630) {
     faldtisovn=false;
@@ -794,6 +814,16 @@ void mousePressed() {
     karakterX = 640;
     karakterY = 380;
     afleveret=false;
+     svar1=false;
+    svar2=false;
+    svar3=false;
+    svar4=false;
+    svar5=false;
+    svar6=false;
+    svar7=false;
+    svar8=false;
+    svar9=false;
+    svar10=false;
   }
 
 
@@ -846,6 +876,16 @@ void mousePressed() {
     karakterX = 640;
     karakterY = 380;
     afleveret=false;
+     svar1=false;
+    svar2=false;
+    svar3=false;
+    svar4=false;
+    svar5=false;
+    svar6=false;
+    svar7=false;
+    svar8=false;
+    svar9=false;
+    svar10=false;
     
   }
 
