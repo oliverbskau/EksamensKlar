@@ -125,6 +125,7 @@ class Eksamenstart {
         text("forkerte svar: " + forkertesvar, 400, height/2 + 50);
         fill(255);
         text("Du skal have mindst 7 rigtige", 400, height/2+100);
+        image(MenuKnap,784,506);
       }
       if (korrektesvar<=6) {
         textSize(100);
@@ -137,6 +138,7 @@ class Eksamenstart {
         text("forkerte svar: " + forkertesvar, 400, height/2 + 50);
         fill(255);
         text("Du skal have mindst 7 rigtige", 400, height/2+100);
+        image(MenuKnap,784,506);
       }
     }
 

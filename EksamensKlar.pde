@@ -790,6 +790,50 @@ void mousePressed() {
     skaermeksamen=false;
     afleveret=true;
   }
+  
+  if (afleveret==true && mouseX>788 && mouseX<1085 && mouseY>510 && mouseY<630){
+      faldtisovn=false;
+    fortrist=false;
+    fortraet=false;
+    visMenuV=1;
+    visMenu=true;
+    spilkarakterskaerm=false;
+    skaermkort=false;
+    skaermbibliotek=false;
+    skaermcafe=false;
+    skaermbyen=false;
+    skaermeksamen=false;
+    indtoning=255;
+    dagsrytme=1;
+    handlingmin=0;
+    korrekt=0;
+    korrekt2=0;
+    korrekt3=0;
+    korrekt4=0;
+    korrekt5=0;
+    korrekt6=0;
+    korrekt7=0;
+    korrekt8=0;
+    korrekt9=0;
+    korrekt10=0;
+    forkert=0;
+    forkert2=0;
+    forkert3=0;
+    forkert4=0;
+    forkert5=0;
+    forkert6=0;
+    forkert7=0;
+    forkert8=0;
+    forkert9=0;
+    forkert10=0;
+    statssove=4;
+    statssocial=1;
+    statsklog=1;
+    eksamensover=0;
+    karakterX = 640;
+    karakterY = 380;
+    
+  }
 
   //eksamens svar 1
   if (mouseX>161 && mouseX<174 && mouseY>151 && mouseY<164 && skaermeksamen==true) {
