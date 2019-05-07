@@ -323,7 +323,7 @@ void draw() {
 
 
 
-  println(mouseX, mouseY, visMenuV);
+  println(mouseX, mouseY);
 
   vaerelse.display();
 
@@ -362,6 +362,16 @@ void draw() {
 
 
 void keyPressed() {
+  
+  
+  if (key=='r'){
+   handlingmin=2;
+   statsklog=5;
+   statssove=5;
+   statssocial=5;
+   dagsrytme=7;
+    
+  }
   
   // vis styring i spillet
   
@@ -791,7 +801,7 @@ void mousePressed() {
     afleveret=true;
   }
   
-  if (afleveret==true && mouseX>788 && mouseX<1085 && mouseY>510 && mouseY<630){
+  if (afleveret==true && mouseX>400 && mouseX<697 && mouseY>510 && mouseY<630){
       faldtisovn=false;
     fortrist=false;
     fortraet=false;
