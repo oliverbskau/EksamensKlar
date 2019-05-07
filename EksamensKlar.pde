@@ -709,6 +709,7 @@ void mousePressed() {
     eksamensover=0;
     karakterX = 640;
     karakterY = 380;
+    afleveret=false;
   }
   if (fortrist==true && mouseX>788 && mouseX<1085 && mouseY>510 && mouseY<630) {
     fortrist=false;
@@ -749,6 +750,7 @@ void mousePressed() {
     eksamensover=0;
     karakterX = 640;
     karakterY = 380;
+    afleveret=false;
   }
   if (fortraet==true && mouseX>788 && mouseX<1085 && mouseY>510 && mouseY<630) {
     faldtisovn=false;
@@ -791,6 +793,7 @@ void mousePressed() {
     eksamensover=0;
     karakterX = 640;
     karakterY = 380;
+    afleveret=false;
   }
 
 
@@ -842,6 +845,7 @@ void mousePressed() {
     eksamensover=0;
     karakterX = 640;
     karakterY = 380;
+    afleveret=false;
     
   }
 
