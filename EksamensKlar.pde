@@ -1,3 +1,6 @@
+
+
+
 //Menu
 Menu menu = new Menu();
 PImage menuskaerm;
@@ -358,25 +361,34 @@ void draw() {
   eksadv.display();
 
   dagen.display();
+  
+ 
 }
 
 
 void keyPressed() {
   
-  
-  if (key=='r'){
-   handlingmin=2;
-   statsklog=5;
-   statssove=5;
-   statssocial=5;
-   dagsrytme=7;
-    
+  if (key=='s'){
+    saveData();
   }
   
+  if (key=='l'){
+    loadData();
+  }
+
+
+  if (key=='r') {
+    handlingmin=2;
+    statsklog=5;
+    statssove=5;
+    statssocial=5;
+    dagsrytme=7;
+  }
+
   // vis styring i spillet
-  
-  if (key=='m' && spilkarakterskaerm==true || key=='m' && skaermkort==true){
-   visMenuV=4; 
+
+  if (key=='m' && spilkarakterskaerm==true || key=='m' && skaermkort==true) {
+    visMenuV=4;
   }
 
   // styring af karakter
@@ -533,11 +545,11 @@ void keyReleased() {
 }
 
 void mousePressed() {
-  
+
   // hvis spillet er startet og man skal fra styring tilbage til spillet
-  
-    if ( spilkarakterskaerm==true && visMenuV==4 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640 || skaermkort==true && visMenuV==4 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640){
-   visMenuV=0; 
+
+  if ( spilkarakterskaerm==true && visMenuV==4 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640 || skaermkort==true && visMenuV==4 && mouseX>=1000 && mouseY>=500 && mouseX<=1200 && mouseY<=640) {
+    visMenuV=0;
   }
 
   //start spillet
@@ -761,7 +773,7 @@ void mousePressed() {
     karakterX = 640;
     karakterY = 380;
     afleveret=false;
-     svar1=false;
+    svar1=false;
     svar2=false;
     svar3=false;
     svar4=false;
@@ -814,7 +826,7 @@ void mousePressed() {
     karakterX = 640;
     karakterY = 380;
     afleveret=false;
-     svar1=false;
+    svar1=false;
     svar2=false;
     svar3=false;
     svar4=false;
@@ -833,9 +845,9 @@ void mousePressed() {
     skaermeksamen=false;
     afleveret=true;
   }
-  
-  if (afleveret==true && mouseX>400 && mouseX<697 && mouseY>510 && mouseY<630){
-      faldtisovn=false;
+
+  if (afleveret==true && mouseX>400 && mouseX<697 && mouseY>510 && mouseY<630) {
+    faldtisovn=false;
     fortrist=false;
     fortraet=false;
     visMenuV=1;
@@ -876,7 +888,7 @@ void mousePressed() {
     karakterX = 640;
     karakterY = 380;
     afleveret=false;
-     svar1=false;
+    svar1=false;
     svar2=false;
     svar3=false;
     svar4=false;
@@ -886,7 +898,6 @@ void mousePressed() {
     svar8=false;
     svar9=false;
     svar10=false;
-    
   }
 
   //eksamens svar 1
